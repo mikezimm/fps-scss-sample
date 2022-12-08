@@ -2,14 +2,14 @@ import * as React from 'react';
 
 import { IPerformanceOp, ILoadPerformance, ILoadPerformanceOps, LoadPerformanceOps, IMinPerformanceSetting } from '../Interfaces/IPerformance';
 
-import styles from './tables.modules.scss';
+import styles from './tables.module.scss';
 
-export function createPerformanceRows( performance: ILoadPerformance, keysToShow: ILoadPerformanceOps[] ) { //[ 'fetch', 'analyze' ]
+export function createPerformanceRows( performance: ILoadPerformance, keysToShow: ILoadPerformanceOps[] ) : JSX.Element[] { //[ 'fetch', 'analyze' ]
 
     // const { fetch, analyze } = performance;
 
     const loadRows: any[] = [
-      <tr>
+      <tr key={"header"}>
         <th>Process</th>
         <th>Mode</th>
         <th>Time</th>
@@ -39,7 +39,7 @@ export function createPerformanceRows( performance: ILoadPerformance, keysToShow
         const thisPart : IPerformanceOp | undefined = ops[part];
 
         if ( thisPart ) {
-          let time: string = thisPart.startStr;
+          const time: string = thisPart.startStr;
           loadRows.push( <tr>
             <td>{ thisPart.label }</td>
             <td>{ thisPart.mode === 1 ? 'View' : 'Edit' }</td>
@@ -59,7 +59,7 @@ export function createPerformanceRows( performance: ILoadPerformance, keysToShow
  * @param performance 
  * @returns 
  */
-export function createPerformanceTableVisitor( performance: ILoadPerformance , keysToShow: ILoadPerformanceOps[] ) {
+export function createPerformanceTableVisitor( performance: ILoadPerformance , keysToShow: ILoadPerformanceOps[] ): JSX.Element {
 
   if ( performance ) {
     // Sample info... this was original straight css
@@ -80,7 +80,7 @@ export function createPerformanceTableVisitor( performance: ILoadPerformance , k
 
   } else {
 
-    return ( <div></div> );
+    return ( <div>No performance available</div> );
 
   }
 }

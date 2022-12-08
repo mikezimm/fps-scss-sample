@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { DisplayMode } from '../Interfaces/displayMode';
+import { DisplayMode } from '../Molecule/Interfaces/displayMode';
 
-import { IPerformanceOp, ILoadPerformance, ILoadPerformanceOps, LoadPerformanceOps, IMinPerformanceSetting } from '../Interfaces/IPerformance';
+import { IPerformanceOp, ILoadPerformance, ILoadPerformanceOps, LoadPerformanceOps, IMinPerformanceSetting } from '../Molecule/Interfaces/IPerformance';
 
 import styles from './tables.module.scss';
 

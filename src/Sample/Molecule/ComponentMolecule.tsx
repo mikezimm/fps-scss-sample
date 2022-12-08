@@ -2,7 +2,7 @@ import * as React from 'react';
 import stylesM from './molecule.module.scss';
 import { ILoadPerformance, ILoadPerformanceOps } from './Interfaces/IPerformance';
 import { MockPerformance } from './Interfaces/MockData';
-import { createPerformanceTableVisitor, createBasePerformanceInit } from './Atoms/ComponentAtoms';
+import { createPerformanceTableVisitor, createBasePerformanceInit } from '../Atoms/ComponentAtoms';
 import { DisplayMode } from './Interfaces/displayMode';
 
 export interface ISourcePagesProps {}

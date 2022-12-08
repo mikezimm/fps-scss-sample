@@ -2,7 +2,8 @@ import * as React from 'react';
 import stylesM from './molecule.module.scss';
 import { ILoadPerformance, ILoadPerformanceOps } from './Interfaces/IPerformance';
 import { MockPerformance } from './Interfaces/MockData';
-import { createPerformanceTableVisitor } from './Atoms/ComponentAtoms';
+import { createPerformanceTableVisitor, createBasePerformanceInit } from './Atoms/ComponentAtoms';
+import { DisplayMode } from './Interfaces/displayMode';
 
 export interface ISourcePagesProps {}
 export interface ISourcePagesState {
@@ -16,7 +17,7 @@ export default class SourcePages extends React.Component<ISourcePagesProps, ISou
   public constructor(props:ISourcePagesProps){
     super(props);
     //Just so it's initialized as empty fromt he start
-    this._performance = {} as ILoadPerformance;
+    this._performance = createBasePerformanceInit( DisplayMode.Read, true );
     this.state = {
       nothingHere: true,
     };
@@ -24,10 +25,10 @@ export default class SourcePages extends React.Component<ISourcePagesProps, ISou
 
   public async componentDidMount(): Promise<void> {
     //At some point, this gets updated so this just simulates getting this final data
-    this._performance = MockPerformance;
+    this._performance = { ...this._performance, ...MockPerformance, };
   }
 
-  public componentDidUpdate(prevProps: ISourcePagesProps): void { }
+  public componentDidUpdate(prevProps: ISourcePagesProps): void { return }
 
   public render(): React.ReactElement<ISourcePagesProps> {
 

@@ -13,11 +13,12 @@
  */
 
 import type { ISourcePagesProps, ISourcePagesState } from "./ComponentMolecule";
-import type { ILoadPerformance, DisplayMode, IPerformanceOp } from "./Interfaces/IPerformance";
-import { createPerformanceTableVisitor } from "./Atoms/ComponentAtoms";
+import type { ILoadPerformance, IPerformanceOp } from "./Interfaces/IPerformance";
+import type { DisplayMode, } from "./Interfaces/displayMode";
+import { createPerformanceTableVisitor,createBasePerformanceInit } from "./Atoms/ComponentAtoms";
 
 // Make functions and static components available as imports
-export { createPerformanceTableVisitor };
+export { createPerformanceTableVisitor, createBasePerformanceInit };
 
 // Make Interfaces available as imports
 export { ILoadPerformance, DisplayMode, IPerformanceOp };

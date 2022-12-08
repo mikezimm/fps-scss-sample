@@ -1,8 +1,32 @@
 import * as React from 'react';
+import { DisplayMode } from '../Interfaces/displayMode';
 
 import { IPerformanceOp, ILoadPerformance, ILoadPerformanceOps, LoadPerformanceOps, IMinPerformanceSetting } from '../Interfaces/IPerformance';
 
 import styles from './tables.module.scss';
+
+export function createBasePerformanceInit( editMode: DisplayMode, monitor:  boolean ) : ILoadPerformance{
+
+  const loadPerformance: ILoadPerformance = {
+      onInit:  new Date(),
+      constructor: null as any,
+
+      sets: { },
+      ops: {
+        fetch:  null as any,
+        analyze:  null as any,
+      },
+
+      monitor: monitor as any,
+      history: [],
+
+      mode: editMode,
+
+  };
+
+  return loadPerformance;
+
+}
 
 export function createPerformanceRows( performance: ILoadPerformance, keysToShow: ILoadPerformanceOps[] ) : JSX.Element[] { //[ 'fetch', 'analyze' ]
 

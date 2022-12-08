@@ -1,6 +1,6 @@
 import { ILoadPerformance } from "./IPerformance";
 
-export const SamplePerformance: ILoadPerformance = {
+export const MockPerformance: ILoadPerformance = {
   "onInit": new Date("2022-12-08T19:37:11.656Z"),
   "constructor": new Date("2022-12-08T19:37:11.659Z"),
   "sets": {},

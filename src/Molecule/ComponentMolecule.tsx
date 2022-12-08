@@ -1,7 +1,7 @@
 import * as React from 'react';
 import stylesM from './molecule.module.scss';
 import { ILoadPerformance, ILoadPerformanceOps } from './Interfaces/IPerformance';
-import { SamplePerformance } from './Interfaces/sampleData';
+import { MockPerformance } from './Interfaces/MockData';
 import { createPerformanceTableVisitor } from './Atoms/ComponentAtoms';
 
 export interface ISourcePagesProps {}
@@ -24,14 +24,14 @@ export default class SourcePages extends React.Component<ISourcePagesProps, ISou
 
   public async componentDidMount(): Promise<void> {
     //At some point, this gets updated so this just simulates getting this final data
-    this._performance = SamplePerformance;
+    this._performance = MockPerformance;
   }
 
   public componentDidUpdate(prevProps: ISourcePagesProps): void { }
 
   public render(): React.ReactElement<ISourcePagesProps> {
 
-    const keysToShow: ILoadPerformanceOps[] = [ 'fetch0',  'fetch1',  'fetch2',  'fetch3',  'fetch4',  'fetch5',  'fetch6',  ];
+    const keysToShow: ILoadPerformanceOps[] = [ 'fetch0',  'fetch1',  'fetch2',  'fetch3',  'fetch4',  'fetch5',  'fetch6',  'fetch7',  'fetch8',  'fetch9'  ];
     const PerformanceElement = createPerformanceTableVisitor( this._performance, keysToShow );
 
     return (
